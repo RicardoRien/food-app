@@ -6,7 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "yarn lint --fix"
+    ]
   },
   "dependencies": {
     "@types/node": "18.11.13",
@@ -18,5 +30,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-jsdoc": "^39.6.4",
+    "husky": "^8.0.0",
+    "jsdoc": "^4.0.0",
+    "lint-staged": "^13.1.0"
   }
 }

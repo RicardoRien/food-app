@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+     "plugin:jsdoc/recommended"
+  ],
+  "overrides":[
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "jsdoc/require-param": "off"
+      }
+    }
+  ],
+  "rules":{
+    "jsdoc/no-undefined-types":  ["error", {"definedTypes":["React"]}],
+    "jsdoc/require-param": [
+      "error",
+      {
+        "unnamedRootBase":["PleasePutMeAName"], 
+        "autoIncrementBase": 0
+      }
+    ],
+    "jsdoc/require-jsdoc": ["error", {"minLineCount":6}],
+    "jsdoc/require-description": ["error", {"descriptionStyle":"tag"}],
+    "jsdoc/require-returns-description": "off",
+    "no-unused-vars": ["error", { "vars": "all", "args": "all", "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }],
+    "no-console":"error",
+    "indent": ["error", 2]
+  }
 }

@@ -5,8 +5,13 @@ type Data = {
   name: string
 }
 
+/**
+ * @description Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+ * @param {object} _req request 
+ * @param {string} res response
+ */
 export default function handler(
-  req: NextApiRequest,
+  _req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
   res.status(200).json({ name: 'John Doe' })
